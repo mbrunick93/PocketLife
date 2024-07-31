@@ -1,0 +1,1021 @@
+[gd_scene load_steps=25 format=3 uid="uid://c2pw6km56va71"]
+
+[ext_resource type="Script" path="res://CreateLife/Script/CreateLife.gd" id="1_bg0do"]
+[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="1_wdd78"]
+[ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="2_7sgh6"]
+[ext_resource type="Texture2D" uid="uid://ncmhrh22r5cf" path="res://CreateLife/Assets/roundsquare.svg" id="3_xcolr"]
+[ext_resource type="Texture2D" uid="uid://saivknpbkud1" path="res://CreateLife/Assets/minusblue.svg" id="4_up1vv"]
+[ext_resource type="Texture2D" uid="uid://cipmnn24bgluj" path="res://CreateLife/Assets/circleOutline.svg" id="5_102an"]
+[ext_resource type="Texture2D" uid="uid://803gsuo3mcki" path="res://CreateLife/Assets/plusblue.svg" id="6_dwb4m"]
+[ext_resource type="Texture2D" uid="uid://ubkvsvyffl20" path="res://Common/Assets/return.svg" id="7_4nnyq"]
+[ext_resource type="Texture2D" uid="uid://c3htihgbfysis" path="res://Common/Assets/start.svg" id="8_cd14k"]
+[ext_resource type="PackedScene" uid="uid://xw14nyqbsjl3" path="res://MainGamePlay/Scene/MainGamePlay.tscn" id="10_wfgfb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tprbp"]
+bg_color = Color(0.486275, 0.756863, 0.541176, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdel6"]
+font = ExtResource("1_wdd78")
+font_size = 170
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+outline_color = Color(0.129412, 0.184314, 0.25098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcayd"]
+font = ExtResource("1_wdd78")
+font_size = 80
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+outline_color = Color(0.129412, 0.184314, 0.25098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qurc8"]
+bg_color = Color(0.952941, 0.941176, 0.894118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqiwu"]
+bg_color = Color(0.952941, 0.941176, 0.894118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_eu2qi"]
+font = ExtResource("1_wdd78")
+font_size = 75
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7ch8d"]
+color = Color(0.486275, 0.756863, 0.541176, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfy6q"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fcim"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_whnkf"]
+font = ExtResource("1_wdd78")
+font_size = 55
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maqka"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_r62iy"]
+font = ExtResource("1_wdd78")
+font_size = 60
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83ddn"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmvup"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="CreateLife" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bg0do")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tprbp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TopLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Create Life"
+label_settings = SubResource("LabelSettings_kdel6")
+horizontal_alignment = 1
+
+[node name="UserInfo" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/UserInfo"]
+layout_mode = 2
+text = "First Name:"
+label_settings = SubResource("LabelSettings_vcayd")
+
+[node name="NameEntry" type="LineEdit" parent="Panel/MarginContainer/VBoxContainer/UserInfo"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.129412, 0.184314, 0.25098, 1)
+theme_override_colors/font_placeholder_color = Color(0.886275, 0.521569, 0.431373, 1)
+theme_override_fonts/font = ExtResource("1_wdd78")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_qurc8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qqiwu")
+placeholder_text = "Enter name"
+alignment = 1
+max_length = 16
+
+[node name="GenderLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/UserInfo"]
+layout_mode = 2
+text = "Gender:"
+label_settings = SubResource("LabelSettings_vcayd")
+
+[node name="GenderEntry" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/UserInfo"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_colors/font_color = Color(0.129412, 0.184314, 0.25098, 1)
+theme_override_fonts/font = ExtResource("1_wdd78")
+theme_override_font_sizes/font_size = 65
+alignment = 1
+item_count = 2
+popup/item_0/text = "Female"
+popup/item_0/id = 0
+popup/item_1/text = "Male"
+popup/item_1/id = 1
+
+[node name="AgeLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/UserInfo"]
+layout_mode = 2
+text = "Age:"
+label_settings = SubResource("LabelSettings_vcayd")
+
+[node name="AgeEntry" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/UserInfo"]
+custom_minimum_size = Vector2(320, 90)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_colors/font_color = Color(0.129412, 0.184314, 0.25098, 1)
+theme_override_fonts/font = ExtResource("1_wdd78")
+theme_override_font_sizes/font_size = 65
+alignment = 1
+item_count = 4
+popup/item_0/text = "Baby (0 Yrs)"
+popup/item_0/id = 0
+popup/item_1/text = "Child (5 Yrs)"
+popup/item_1/id = 1
+popup/item_2/text = "Teen (13 Yrs)"
+popup/item_2/id = 2
+popup/item_3/text = "Adult (18 Yrs)"
+popup/item_3/id = 3
+
+[node name="DifficultyLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/UserInfo"]
+layout_mode = 2
+text = "Difficulty:"
+label_settings = SubResource("LabelSettings_vcayd")
+
+[node name="DifficultyEntry" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/UserInfo"]
+custom_minimum_size = Vector2(320, 90)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_colors/font_color = Color(0.129412, 0.184314, 0.25098, 1)
+theme_override_fonts/font = ExtResource("1_wdd78")
+theme_override_font_sizes/font_size = 65
+alignment = 1
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+
+[node name="AttributesPanel" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 840)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("3_xcolr")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="AttrRemainingContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/AttrRemainingContainer"]
+layout_mode = 2
+text = "Remaining: "
+label_settings = SubResource("LabelSettings_eu2qi")
+
+[node name="AttrRemainingLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/AttrRemainingContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_eu2qi")
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_7ch8d")
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="IntDecButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntDecButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_up1vv")
+expand_mode = 1
+
+[node name="IntVBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer"]
+layout_mode = 2
+text = "INTELLIGENCE"
+label_settings = SubResource("LabelSettings_whnkf")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="IntLevel1" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel3" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel4" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel5" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel6" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel7" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel8" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel9" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntLevel10" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="IntIncButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntIncButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_dwb4m")
+expand_mode = 1
+
+[node name="StrDecButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrDecButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_up1vv")
+expand_mode = 1
+
+[node name="StrVBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer"]
+layout_mode = 2
+text = "Strength"
+label_settings = SubResource("LabelSettings_whnkf")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer"]
+layout_mode = 2
+
+[node name="StrLevel1" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel3" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel4" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel5" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel6" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel7" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel8" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel9" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrLevel10" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="StrIncButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrIncButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_dwb4m")
+expand_mode = 1
+
+[node name="ChrDecButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrDecButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_up1vv")
+expand_mode = 1
+
+[node name="ChrVBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer"]
+layout_mode = 2
+text = "Charisma"
+label_settings = SubResource("LabelSettings_whnkf")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer"]
+layout_mode = 2
+
+[node name="ChrLevel1" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel3" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel4" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel5" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel6" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel7" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel8" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel9" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrLevel10" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="ChrIncButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrIncButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_dwb4m")
+expand_mode = 1
+
+[node name="AprDecButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprDecButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_up1vv")
+expand_mode = 1
+
+[node name="AprVBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer"]
+layout_mode = 2
+text = "Appearance"
+label_settings = SubResource("LabelSettings_whnkf")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AprLevel1" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel3" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel4" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel5" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel6" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel7" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel8" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel9" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprLevel10" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="AprIncButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprIncButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_dwb4m")
+expand_mode = 1
+
+[node name="LckDecButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckDecButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_up1vv")
+expand_mode = 1
+
+[node name="LckVBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer"]
+layout_mode = 2
+text = "LUCK"
+label_settings = SubResource("LabelSettings_whnkf")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LckLevel1" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel3" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel4" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel5" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel6" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel7" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel8" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel9" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckLevel10" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_102an")
+expand_mode = 1
+
+[node name="LckIncButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(115, 115)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfy6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6fcim")
+
+[node name="IconLayer" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckIncButton"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_dwb4m")
+expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.5
+offset_top = -127.0
+offset_right = 92.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="WarningLabel" type="Label" parent="Panel/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_maqka")
+text = "text
+text"
+label_settings = SubResource("LabelSettings_r62iy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnButton" type="Button" parent="Panel/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ddn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cmvup")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer2/VBoxContainer/HBoxContainer/ReturnButton"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_4nnyq")
+expand_mode = 1
+
+[node name="StartButton" type="Button" parent="Panel/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("2_7sgh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_83ddn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cmvup")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer2/VBoxContainer/HBoxContainer/StartButton"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_cd14k")
+expand_mode = 1
+
+[node name="MainGamePlay" parent="." instance=ExtResource("10_wfgfb")]
+visible = false
+layout_mode = 1
+
+[connection signal="text_changed" from="Panel/MarginContainer/VBoxContainer/UserInfo/NameEntry" to="." method="_on_name_entry_text_changed"]
+[connection signal="item_selected" from="Panel/MarginContainer/VBoxContainer/UserInfo/GenderEntry" to="." method="_on_gender_entry_item_selected"]
+[connection signal="item_selected" from="Panel/MarginContainer/VBoxContainer/UserInfo/AgeEntry" to="." method="_on_age_entry_item_selected"]
+[connection signal="item_selected" from="Panel/MarginContainer/VBoxContainer/UserInfo/DifficultyEntry" to="." method="_on_difficulty_entry_item_selected"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntDecButton" to="." method="_on_int_dec_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/IntIncButton" to="." method="_on_int_inc_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrDecButton" to="." method="_on_str_dec_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/StrIncButton" to="." method="_on_str_inc_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrDecButton" to="." method="_on_chr_dec_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/ChrIncButton" to="." method="_on_chr_inc_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprDecButton" to="." method="_on_apr_dec_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/AprIncButton" to="." method="_on_apr_inc_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckDecButton" to="." method="_on_lck_dec_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/LckIncButton" to="." method="_on_lck_inc_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer2/VBoxContainer/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer2/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="menu_pressed" from="MainGamePlay" to="." method="_on_main_game_play_menu_pressed"]

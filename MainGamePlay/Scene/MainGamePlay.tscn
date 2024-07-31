@@ -1,0 +1,483 @@
+[gd_scene load_steps=22 format=3 uid="uid://xw14nyqbsjl3"]
+
+[ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_2c3dr"]
+[ext_resource type="Script" path="res://MainGamePlay/Script/MainGamePlay.gd" id="1_wnga8"]
+[ext_resource type="Texture2D" uid="uid://bxikbrtvchhoi" path="res://MainGamePlay/Assets/female.svg" id="2_gegaj"]
+[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="3_3n6cd"]
+[ext_resource type="Texture2D" uid="uid://db3ssh8f8ibta" path="res://MainGamePlay/Assets/school.svg" id="5_hdhwj"]
+[ext_resource type="Texture2D" uid="uid://2kfv2c3dkrmc" path="res://MainGamePlay/Assets/money.svg" id="6_dpoe4"]
+[ext_resource type="Texture2D" uid="uid://c7a6ckr7b0qtu" path="res://MainGamePlay/Assets/work.svg" id="6_g4te2"]
+[ext_resource type="Texture2D" uid="uid://b0wd6y6hx4fbq" path="res://MainGamePlay/Assets/menu.svg" id="8_8aw0y"]
+[ext_resource type="PackedScene" uid="uid://bt3iybkm1b76c" path="res://Money/Scene/Money.tscn" id="9_706n0"]
+[ext_resource type="PackedScene" uid="uid://gbglq7plojdb" path="res://Work/Scene/Work.tscn" id="9_pm2v7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyqwq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_byq0o"]
+font = ExtResource("3_3n6cd")
+font_size = 80
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+outline_size = 10
+outline_color = Color(0.129412, 0.184314, 0.25098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe11p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lr56k"]
+font = ExtResource("3_3n6cd")
+font_size = 80
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+outline_size = 10
+outline_color = Color(0.129412, 0.184314, 0.25098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qka81"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau2i"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dai2t"]
+bg_color = Color(0.133333, 0.635294, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auqc2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rufg1"]
+font = ExtResource("3_3n6cd")
+font_size = 55
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+outline_size = 5
+outline_color = Color(0.129412, 0.184314, 0.25098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6kqw"]
+bg_color = Color(0.129412, 0.184314, 0.25098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pb1i2"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainGamePlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wnga8")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2c3dr")
+
+[node name="LifeEventsContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/LifeEventsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="GenderNameContainer" type="HBoxContainer" parent="Background/LifeEventsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="PlayerGender" type="TextureRect" parent="Background/LifeEventsContainer/VBoxContainer/GenderNameContainer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_gegaj")
+expand_mode = 1
+
+[node name="PlayerName" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/GenderNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_lyqwq")
+text = "name"
+label_settings = SubResource("LabelSettings_byq0o")
+horizontal_alignment = 1
+
+[node name="AgeContainer" type="HBoxContainer" parent="Background/LifeEventsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="AgeLabel" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/AgeContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_oe11p")
+text = "0"
+label_settings = SubResource("LabelSettings_lr56k")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/AgeContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_oe11p")
+text = "Years"
+label_settings = SubResource("LabelSettings_lr56k")
+horizontal_alignment = 1
+
+[node name="AgeLabelMonth" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/AgeContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_oe11p")
+text = "0"
+label_settings = SubResource("LabelSettings_lr56k")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/AgeContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_oe11p")
+text = "Months"
+label_settings = SubResource("LabelSettings_lr56k")
+horizontal_alignment = 1
+
+[node name="LifeEventsText" type="TextEdit" parent="Background/LifeEventsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 700)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_colors/font_readonly_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_3n6cd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qka81")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_tau2i")
+text = "New Life Started"
+editable = false
+selecting_enabled = false
+virtual_keyboard_enabled = false
+wrap_mode = 1
+
+[node name="StatsPanel" type="Panel" parent="Background/LifeEventsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(850, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_dai2t")
+
+[node name="StatsContainer" type="GridContainer" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -401.5
+offset_top = -224.5
+offset_right = 401.5
+offset_bottom = 224.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="HealthLabel" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "Health:"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 2
+
+[node name="HealthProgressBar" type="ProgressBar" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_3n6cd")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/background = SubResource("StyleBoxFlat_h6kqw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pb1i2")
+value = 100.0
+
+[node name="HappyLabel" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "HAPPINESS:"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 2
+
+[node name="HappyProgressBar" type="ProgressBar" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_3n6cd")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/background = SubResource("StyleBoxFlat_h6kqw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pb1i2")
+value = 100.0
+
+[node name="Label" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "INTELLIGENCE:"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 2
+
+[node name="IntelligenceLabel" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "0"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "STRENGTH:"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 2
+
+[node name="StrengthLabel" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "0"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "CHARISMA:"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 2
+
+[node name="CharismaLabel" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "0"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "APPEARANCE:"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 2
+
+[node name="AppearanceLabel" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "0"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "LUCK:"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 2
+
+[node name="LuckLabel" type="Label" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/StatsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_auqc2")
+text = "0"
+label_settings = SubResource("LabelSettings_rufg1")
+horizontal_alignment = 1
+
+[node name="TimeProgression" type="HBoxContainer" parent="Background/LifeEventsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AddMonth" type="Button" parent="Background/LifeEventsContainer/VBoxContainer/TimeProgression"]
+custom_minimum_size = Vector2(350, 120)
+layout_mode = 2
+text = "+1 Month"
+
+[node name="AddYear" type="Button" parent="Background/LifeEventsContainer/VBoxContainer/TimeProgression"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+text = "+1 Year"
+
+[node name="LifeOptionsContainers" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -75.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/LifeOptionsContainers"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MoneyButton" type="Button" parent="Background/LifeOptionsContainers/HBoxContainer"]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+theme = ExtResource("1_2c3dr")
+
+[node name="IconLayer" type="TextureRect" parent="Background/LifeOptionsContainers/HBoxContainer/MoneyButton"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_dpoe4")
+expand_mode = 1
+
+[node name="WorkButton" type="Button" parent="Background/LifeOptionsContainers/HBoxContainer"]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+theme = ExtResource("1_2c3dr")
+
+[node name="IconLayer" type="TextureRect" parent="Background/LifeOptionsContainers/HBoxContainer/WorkButton"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_g4te2")
+expand_mode = 1
+
+[node name="SchoolButton" type="Button" parent="Background/LifeOptionsContainers/HBoxContainer"]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+theme = ExtResource("1_2c3dr")
+
+[node name="IconLayer" type="TextureRect" parent="Background/LifeOptionsContainers/HBoxContainer/SchoolButton"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hdhwj")
+expand_mode = 1
+
+[node name="MenuContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="MenuButton" type="Button" parent="Background/MenuContainer"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+
+[node name="IconLayer" type="TextureRect" parent="Background/MenuContainer/MenuButton"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8aw0y")
+expand_mode = 1
+
+[node name="Money" parent="." instance=ExtResource("9_706n0")]
+visible = false
+layout_mode = 1
+
+[node name="Work" parent="." instance=ExtResource("9_pm2v7")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Background/LifeEventsContainer/VBoxContainer/TimeProgression/AddMonth" to="." method="_on_add_month_pressed"]
+[connection signal="pressed" from="Background/LifeEventsContainer/VBoxContainer/TimeProgression/AddYear" to="." method="_on_add_year_pressed"]
+[connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/MoneyButton" to="." method="_on_money_button_pressed"]
+[connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/WorkButton" to="." method="_on_work_button_pressed"]
+[connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/SchoolButton" to="." method="_on_school_button_pressed"]
+[connection signal="pressed" from="Background/MenuContainer/MenuButton" to="." method="_on_menu_button_pressed"]

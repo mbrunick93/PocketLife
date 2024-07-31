@@ -1,0 +1,236 @@
+[gd_scene load_steps=11 format=3 uid="uid://bt3iybkm1b76c"]
+
+[ext_resource type="Script" path="res://Money/Script/Money.gd" id="1_8ih5r"]
+[ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_q286i"]
+[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="2_6bumn"]
+[ext_resource type="Texture2D" uid="uid://ubkvsvyffl20" path="res://Common/Assets/return.svg" id="4_uarql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejafr"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg57t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xgidm"]
+font = ExtResource("2_6bumn")
+font_size = 90
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_gka88"]
+color = Color(0.129412, 0.184314, 0.25098, 1)
+thickness = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oapi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0o4ae"]
+font = ExtResource("2_6bumn")
+font_size = 60
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[node name="Money" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ih5r")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q286i")
+
+[node name="BankContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 150
+
+[node name="Panel" type="Panel" parent="Background/BankContainer"]
+custom_minimum_size = Vector2(900, 600)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ejafr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/BankContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Background/BankContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kg57t")
+text = "Pocket Life Bank"
+label_settings = SubResource("LabelSettings_xgidm")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Background/BankContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_gka88")
+
+[node name="HBoxContainer" type="GridContainer" parent="Background/BankContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+columns = 3
+
+[node name="Label" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "Balance: "
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label4" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "$"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="AccountBalance" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "0"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label9" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "Assets: "
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label10" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "$"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="AccountAssets" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "0"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label2" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "Income:"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label5" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "$"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="AccountIncome" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "0"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label3" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "Debt:"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label6" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "$"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="AccountDebt" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "0"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label7" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "Net Worth:   "
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="Label8" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "$"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="AccountNetWorth" type="Label" parent="Background/BankContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_5oapi")
+text = "0"
+label_settings = SubResource("LabelSettings_0o4ae")
+
+[node name="ReturnContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="ReturnButton" type="Button" parent="Background/ReturnContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("1_q286i")
+
+[node name="TextureRect" type="TextureRect" parent="Background/ReturnContainer/ReturnButton"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_uarql")
+expand_mode = 1
+
+[connection signal="pressed" from="Background/ReturnContainer/ReturnButton" to="." method="_on_return_button_pressed"]
