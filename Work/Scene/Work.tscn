@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gbglq7plojdb"]
+[gd_scene load_steps=5 format=3 uid="uid://gbglq7plojdb"]
 
 [ext_resource type="Script" path="res://Work/Script/Work.gd" id="1_8n0sw"]
 [ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_pgosv"]
 [ext_resource type="Texture2D" uid="uid://ubkvsvyffl20" path="res://Common/Assets/return.svg" id="2_bskmi"]
+[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="3_ayu6j"]
 
 [node name="Work" type="Control"]
 layout_mode = 3
@@ -21,6 +22,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_pgosv")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemList" type="ItemList" parent="Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ayu6j")
+theme_override_font_sizes/font_size = 40
+auto_height = true
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Job Selected"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ReturnContainer" type="MarginContainer" parent="Background"]
 layout_mode = 1
@@ -58,4 +89,5 @@ grow_vertical = 2
 texture = ExtResource("2_bskmi")
 expand_mode = 1
 
+[connection signal="item_clicked" from="Background/MarginContainer/VBoxContainer/ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="pressed" from="Background/ReturnContainer/ReturnButton" to="." method="_on_return_button_pressed"]

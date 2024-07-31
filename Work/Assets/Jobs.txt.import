@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dtyjloiesp2m5"
+
+[deps]
+
+files=["res://Work/Assets/Jobs.Monthly Pay.translation", "res://Work/Assets/Jobs.Required Age.translation", "res://Work/Assets/Jobs.Required Degree.translation", "res://Work/Assets/Jobs.Stress.translation"]
+
+source_file="res://Work/Assets/Jobs.csv"
+dest_files=["res://Work/Assets/Jobs.Monthly Pay.translation", "res://Work/Assets/Jobs.Required Age.translation", "res://Work/Assets/Jobs.Required Degree.translation", "res://Work/Assets/Jobs.Stress.translation"]
+
+[params]
+
+compress=true
+delimiter=0

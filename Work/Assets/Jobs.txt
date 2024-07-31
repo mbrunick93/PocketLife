@@ -1,0 +1,9 @@
+Game Index,Job Name,Monthly Pay,Required Age,Required Degree,Stress
+0,Dog Walker,560,13,None,5
+0,Baby Sitter,520,13,None,4
+0,Housekeeper,450,13,None,2
+0,Fast Food,880,16,None,5
+0,Movie Theater,740,16,None,4
+0,Car Wash,580,16,None,2
+0,Grocery Store,900,16,None,5
+0,Software Engineer,6250,16,Bachelors,5
