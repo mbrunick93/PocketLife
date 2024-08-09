@@ -14,7 +14,7 @@ func saveFileExist():
 	return FileAccess.file_exists(saveFile)
 	
 func deleteSave():
-	var dir = DirAccess.remove_absolute(saveFile)
+	DirAccess.remove_absolute(saveFile)
 
 func loadGame():
 	var returnType = false

@@ -1,15 +1,18 @@
-[gd_scene load_steps=22 format=3 uid="uid://xw14nyqbsjl3"]
+[gd_scene load_steps=25 format=3 uid="uid://xw14nyqbsjl3"]
 
 [ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_2c3dr"]
 [ext_resource type="Script" path="res://MainGamePlay/Script/MainGamePlay.gd" id="1_wnga8"]
 [ext_resource type="Texture2D" uid="uid://bxikbrtvchhoi" path="res://MainGamePlay/Assets/female.svg" id="2_gegaj"]
 [ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="3_3n6cd"]
 [ext_resource type="Texture2D" uid="uid://db3ssh8f8ibta" path="res://MainGamePlay/Assets/school.svg" id="5_hdhwj"]
+[ext_resource type="Texture2D" uid="uid://crhypkwprlop5" path="res://MainGamePlay/Assets/upgrade.svg" id="5_oeixy"]
 [ext_resource type="Texture2D" uid="uid://2kfv2c3dkrmc" path="res://MainGamePlay/Assets/money.svg" id="6_dpoe4"]
 [ext_resource type="Texture2D" uid="uid://c7a6ckr7b0qtu" path="res://MainGamePlay/Assets/work.svg" id="6_g4te2"]
 [ext_resource type="Texture2D" uid="uid://b0wd6y6hx4fbq" path="res://MainGamePlay/Assets/menu.svg" id="8_8aw0y"]
 [ext_resource type="PackedScene" uid="uid://bt3iybkm1b76c" path="res://Money/Scene/Money.tscn" id="9_706n0"]
 [ext_resource type="PackedScene" uid="uid://gbglq7plojdb" path="res://Work/Scene/Work.tscn" id="9_pm2v7"]
+[ext_resource type="PackedScene" uid="uid://ktdeomo18gj" path="res://School/Scene/School.tscn" id="11_n28yx"]
+[ext_resource type="PackedScene" uid="uid://37o47ijrcfe5" path="res://MainGamePlay/Scene/AttributeUpgrade.tscn" id="13_2mmrh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyqwq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -39,7 +42,12 @@ content_margin_left = 20.0
 content_margin_top = 20.0
 content_margin_right = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0.129412, 0.184314, 0.25098, 1)
+bg_color = Color(0.133333, 0.635294, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -334,6 +342,36 @@ text = "0"
 label_settings = SubResource("LabelSettings_rufg1")
 horizontal_alignment = 1
 
+[node name="MarginContainer" type="MarginContainer" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel"]
+layout_mode = 1
+offset_right = 85.0
+offset_bottom = 85.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="UpgradeButton" type="Button" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/MarginContainer"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="Background/LifeEventsContainer/VBoxContainer/StatsPanel/MarginContainer/UpgradeButton"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_oeixy")
+expand_mode = 1
+
 [node name="TimeProgression" type="HBoxContainer" parent="Background/LifeEventsContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -370,7 +408,7 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="MoneyButton" type="Button" parent="Background/LifeOptionsContainers/HBoxContainer"]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme = ExtResource("1_2c3dr")
 
@@ -392,7 +430,7 @@ texture = ExtResource("6_dpoe4")
 expand_mode = 1
 
 [node name="WorkButton" type="Button" parent="Background/LifeOptionsContainers/HBoxContainer"]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme = ExtResource("1_2c3dr")
 
@@ -414,7 +452,7 @@ texture = ExtResource("6_g4te2")
 expand_mode = 1
 
 [node name="SchoolButton" type="Button" parent="Background/LifeOptionsContainers/HBoxContainer"]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme = ExtResource("1_2c3dr")
 
@@ -475,9 +513,23 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="School" parent="." instance=ExtResource("11_n28yx")]
+visible = false
+layout_mode = 1
+
+[node name="AttributeUpgrade" parent="." instance=ExtResource("13_2mmrh")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Background/LifeEventsContainer/VBoxContainer/StatsPanel/MarginContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Background/LifeEventsContainer/VBoxContainer/TimeProgression/AddMonth" to="." method="_on_add_month_pressed"]
 [connection signal="pressed" from="Background/LifeEventsContainer/VBoxContainer/TimeProgression/AddYear" to="." method="_on_add_year_pressed"]
 [connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/MoneyButton" to="." method="_on_money_button_pressed"]
 [connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/WorkButton" to="." method="_on_work_button_pressed"]
 [connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/SchoolButton" to="." method="_on_school_button_pressed"]
 [connection signal="pressed" from="Background/MenuContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="AprLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_apr_level_up"]
+[connection signal="ChrLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_chr_level_up"]
+[connection signal="IntLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_int_level_up"]
+[connection signal="LckLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_lck_level_up"]
+[connection signal="StrLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_str_level_up"]

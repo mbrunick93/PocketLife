@@ -20,7 +20,8 @@ var femaleIcon = load("res://MainGamePlay/Assets/female.svg")
 var maleIcon = load("res://MainGamePlay/Assets/male.svg")
 
 const attributeMin = 0
-const attributeMax = 0
+const attributeMax = 10
+
 var attributeCount : int
 var attributeLimit : int
 var attributes = {	"Strength": 0,
@@ -28,11 +29,12 @@ var attributes = {	"Strength": 0,
 					"Charisma" : 0,
 					"Luck" : 0,
 					"Appearance" : 0 }
+					
 var attributeNodePathPrefix = "Panel/MarginContainer/VBoxContainer/AttributesPanel/VBoxContainer/GridContainer/"
 enum GENDER {FEMALE = 0, MALE = 1}
-enum AGE {NEWBORN = 0, CHILD = 1, TEEN = 2, ADULT =3}
+enum AGE {NEWBORN = 0, CHILD = 1, TWEEN = 2, ADULT =3}
 enum DIFFICULTY {EASY = 0, NORMAL = 1, HARD = 2}
-enum ATTRIBUTE{NEWBORN = 0, CHILD = 5, TEEN = 13, ADULT = 18}
+enum ATTRIBUTE{NEWBORN = 0, CHILD = 5, TWEEN = 11, ADULT = 18}
 const UNSELECTED = -1
 
 signal menu_pressed
@@ -181,11 +183,11 @@ func _on_age_entry_item_selected(index):
 		attr_remaining_label.text = str(ATTRIBUTE.CHILD)
 		main_game_play.setAge(ATTRIBUTE.CHILD)
 		attributes_panel.show()
-	elif(index == AGE.TEEN):
-		attributeCount = ATTRIBUTE.TEEN
-		attributeLimit = ATTRIBUTE.TEEN
-		attr_remaining_label.text = str(ATTRIBUTE.TEEN)
-		main_game_play.setAge(ATTRIBUTE.TEEN)
+	elif(index == AGE.TWEEN):
+		attributeCount = ATTRIBUTE.TWEEN
+		attributeLimit = ATTRIBUTE.TWEEN
+		attr_remaining_label.text = str(ATTRIBUTE.TWEEN)
+		main_game_play.setAge(ATTRIBUTE.TWEEN)
 		attributes_panel.show()
 	elif(index == AGE.ADULT):
 		attributeCount = ATTRIBUTE.ADULT

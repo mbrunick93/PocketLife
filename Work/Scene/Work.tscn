@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://gbglq7plojdb"]
+[gd_scene load_steps=9 format=3 uid="uid://gbglq7plojdb"]
 
 [ext_resource type="Script" path="res://Work/Script/Work.gd" id="1_8n0sw"]
 [ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_pgosv"]
 [ext_resource type="Texture2D" uid="uid://ubkvsvyffl20" path="res://Common/Assets/return.svg" id="2_bskmi"]
-[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="3_ayu6j"]
+[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="3_exoqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwjdo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k268e"]
+font = ExtResource("3_exoqc")
+font_size = 60
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lu4s4"]
+font = ExtResource("3_exoqc")
+font_size = 50
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pf42v"]
+bg_color = Color(0.129412, 0.184314, 0.25098, 1)
 
 [node name="Work" type="Control"]
 layout_mode = 3
@@ -34,24 +50,65 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_constants/margin_top = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Background/MarginContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="ItemList" type="ItemList" parent="Background/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(600, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ayu6j")
-theme_override_font_sizes/font_size = 40
-auto_height = true
-
-[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(400, 120)
+[node name="JobSelection" type="GridContainer" parent="Background/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Job Selected"
+size_flags_vertical = 4
+theme_override_constants/h_separation = 25
+columns = 2
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer2/JobSelection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_exoqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bwjdo")
+text = "Current Job:"
+label_settings = SubResource("LabelSettings_k268e")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CurrentJobLabel" type="Label" parent="Background/MarginContainer/VBoxContainer2/JobSelection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_exoqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bwjdo")
+text = "Unemployed"
+label_settings = SubResource("LabelSettings_lu4s4")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Background/MarginContainer/VBoxContainer2/JobSelection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_exoqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bwjdo")
+text = "Years of Experience:"
+label_settings = SubResource("LabelSettings_k268e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentJobLabel2" type="Label" parent="Background/MarginContainer/VBoxContainer2/JobSelection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_exoqc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bwjdo")
+text = "0"
+label_settings = SubResource("LabelSettings_lu4s4")
+horizontal_alignment = 1
+
+[node name="JobList" type="Tree" parent="Background/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(900, 1000)
+layout_mode = 2
+theme_override_colors/title_button_color = Color(0.886275, 0.521569, 0.431373, 1)
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_colors/font_selected_color = Color(0.133333, 0.635294, 0.8, 1)
+theme_override_fonts/title_button_font = ExtResource("3_exoqc")
+theme_override_fonts/font = ExtResource("3_exoqc")
+theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/title_button_font_size = 30
+theme_override_styles/panel = SubResource("StyleBoxFlat_pf42v")
 
 [node name="ReturnContainer" type="MarginContainer" parent="Background"]
 layout_mode = 1
@@ -89,5 +146,4 @@ grow_vertical = 2
 texture = ExtResource("2_bskmi")
 expand_mode = 1
 
-[connection signal="item_clicked" from="Background/MarginContainer/VBoxContainer/ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="pressed" from="Background/ReturnContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://ktdeomo18gj"]
+
+[ext_resource type="Script" path="res://School/Script/School.gd" id="1_3ulku"]
+[ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_lkctj"]
+[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="2_mv523"]
+[ext_resource type="Texture2D" uid="uid://ubkvsvyffl20" path="res://Common/Assets/return.svg" id="4_6jtgt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bd3a2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyvc8"]
+font_size = 60
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3s1k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dr3uy"]
+font = ExtResource("2_mv523")
+font_size = 50
+
+[node name="School" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3ulku")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lkctj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mv523")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bd3a2")
+text = "Current Education:"
+label_settings = SubResource("LabelSettings_wyvc8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EducationLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x3s1k")
+text = "preschool"
+label_settings = SubResource("LabelSettings_dr3uy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="ReturnButton" type="Button" parent="Panel/ReturnContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("1_lkctj")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ReturnContainer/ReturnButton"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6jtgt")
+expand_mode = 1
+
+[connection signal="pressed" from="Panel/ReturnContainer/ReturnButton" to="." method="_on_return_button_pressed"]

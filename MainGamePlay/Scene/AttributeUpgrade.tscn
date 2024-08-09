@@ -1,0 +1,202 @@
+[gd_scene load_steps=9 format=3 uid="uid://37o47ijrcfe5"]
+
+[ext_resource type="Script" path="res://MainGamePlay/Script/AttributeUpgrade.gd" id="1_82fu4"]
+[ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_a0dko"]
+[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="4_n35i5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dty51"]
+bg_color = Color(0.133333, 0.635294, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_sinwa"]
+font = ExtResource("4_n35i5")
+font_size = 64
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p475t"]
+font = ExtResource("4_n35i5")
+font_size = 60
+font_color = Color(0.952941, 0.941176, 0.894118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_453mg"]
+bg_color = Color(0.129412, 0.184314, 0.25098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icgss"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="AttributeUpgrade" type="Panel"]
+custom_minimum_size = Vector2(975, 900)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -300.0
+offset_right = 425.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dty51")
+script = ExtResource("1_82fu4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Attribute Levels"
+label_settings = SubResource("LabelSettings_sinwa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IntContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/IntContainer"]
+layout_mode = 2
+text = "Intelligence"
+label_settings = SubResource("LabelSettings_p475t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IntProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/IntContainer"]
+layout_mode = 2
+theme = ExtResource("1_a0dko")
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("4_n35i5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/background = SubResource("StyleBoxFlat_453mg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_icgss")
+
+[node name="StrContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/StrContainer"]
+layout_mode = 2
+text = "Strength"
+label_settings = SubResource("LabelSettings_p475t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StrProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/StrContainer"]
+layout_mode = 2
+theme = ExtResource("1_a0dko")
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("4_n35i5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/background = SubResource("StyleBoxFlat_453mg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_icgss")
+
+[node name="ChrContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ChrContainer"]
+layout_mode = 2
+text = "Charisma"
+label_settings = SubResource("LabelSettings_p475t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChrProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/ChrContainer"]
+layout_mode = 2
+theme = ExtResource("1_a0dko")
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("4_n35i5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/background = SubResource("StyleBoxFlat_453mg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_icgss")
+
+[node name="AprContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AprContainer"]
+layout_mode = 2
+text = "Appearance"
+label_settings = SubResource("LabelSettings_p475t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AprProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/AprContainer"]
+layout_mode = 2
+theme = ExtResource("1_a0dko")
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("4_n35i5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/background = SubResource("StyleBoxFlat_453mg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_icgss")
+
+[node name="LckContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/LckContainer"]
+layout_mode = 2
+text = "Luck"
+label_settings = SubResource("LabelSettings_p475t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LckProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/LckContainer"]
+layout_mode = 2
+theme = ExtResource("1_a0dko")
+theme_override_colors/font_color = Color(0.952941, 0.941176, 0.894118, 1)
+theme_override_fonts/font = ExtResource("4_n35i5")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/background = SubResource("StyleBoxFlat_453mg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_icgss")
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_a0dko")
+text = "close"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

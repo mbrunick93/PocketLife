@@ -1,41 +1,43 @@
 extends Control
-
-var jobDict = {}
-var filePath = "res://Work/Assets/Jobs.txt"
-@onready var item_list = $Background/MarginContainer/VBoxContainer/ItemList
-@onready var label = $Background/MarginContainer/VBoxContainer/Label
+@onready var job_list = $Background/MarginContainer/VBoxContainer2/JobList
 
 
-enum JOB {	INDEX = 0,
-			NAME = 1,
-			MONTHLY_PAY = 2,
-			RQ_AGE = 3,
-			RQ_DG = 4,
-			STRESS = 5 }
-			
-const csvTopRow = 0 			
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	importJobs()
+	var root = job_list.create_item()
+	root.set_text(0,"Jobs available")
+	job_list.hide_root = true
+	# Entry Level Jobs
+	var entryLevel = job_list.create_item(root)
+	entryLevel.set_text(0,"Entry Level")
+	
+	#Intermediate Level Jobs
+	var interLevel = job_list.create_item(root)
+	interLevel.set_text(0,"Intermediate Level")
+	
+	#Senior Level Job
+	var seniorLevel = job_list.create_item(root)
+	seniorLevel.set_text(0,"Senior Level")
+	
+	#Executive Level Job
+	var executiveLevel = job_list.create_item(root)
+	executiveLevel.set_text(0,"Executive Level")
 
+	var military = job_list.create_item(root)
+	military.set_text(0,"Military")
+	var enlisted = job_list.create_item(military)
+	enlisted.set_text(0,"Enlisted")
+	var officer = job_list.create_item(military)
+	officer.set_text(0,"Officer")
 
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func importJobs():
-	var file = FileAccess.open(filePath,FileAccess.READ)
-	while !file.eof_reached():
-		var data_set = Array(file.get_csv_line())
-		jobDict[jobDict.size()] = data_set
-	file.close()
-	jobDict.erase(csvTopRow)
-	for i in jobDict:
-		item_list.add_item(jobDict[i][JOB.NAME])
-		pass
+	pass
 	
 func _on_return_button_pressed():
 	hide()
-
-func _on_item_list_item_clicked(index, at_position, mouse_button_index):
-	label.text = jobDict[index+1][JOB.NAME]

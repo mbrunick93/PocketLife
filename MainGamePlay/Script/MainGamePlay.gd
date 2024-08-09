@@ -18,6 +18,10 @@ extends Control
 @onready var money = $Money
 @onready var age_label_month = $Background/LifeEventsContainer/VBoxContainer/AgeContainer/AgeLabelMonth
 @onready var work = $Work
+@onready var school = $School
+@onready var upgrade_button = $Background/LifeEventsContainer/VBoxContainer/StatsPanel/MarginContainer/UpgradeButton
+@onready var attribute_upgrade = $AttributeUpgrade
+
 var femaleIcon = load("res://MainGamePlay/Assets/female.svg")
 var maleIcon = load("res://MainGamePlay/Assets/male.svg")
 
@@ -35,6 +39,7 @@ signal menu_pressed
 ################################################################################
 func _ready():
 	life_events_text.focus_mode = FOCUS_NONE
+	
 
 ################################################################################
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -58,6 +63,7 @@ func setAge( NewAge ):
 	currentAgeMonths = defaultAge
 	age_label_month.text = str(defaultAge)
 	age_label.text = str(NewAge)
+	school.setSchool(NewAge)
 	
 func saveGame():
 	var saveData = {}
@@ -116,16 +122,23 @@ func _on_add_month_pressed():
 		currentAgeYears += 1 
 		age_label_month.text = str(currentAgeMonths)
 		age_label.text = str(currentAgeYears)
+		school.setSchool(currentAgeYears)
 	else:
 		currentAgeMonths += 1
 		age_label_month.text = str(currentAgeMonths)
 	
-	# update happy and health
+	# Test Value!!!!!
 	happy_progress_bar.value = happy_progress_bar.value - 0.833
+	attribute_upgrade.increaseApr()
+	attribute_upgrade.increaseChr()
+	attribute_upgrade.increaseInt()
+	attribute_upgrade.increaseLck()
+	attribute_upgrade.increaseStr()
 	saveGame()
 		
 func _on_add_year_pressed():
 	currentAgeYears += 1
+	school.setSchool(currentAgeYears)
 	age_label.text = str(currentAgeYears)
 	happy_progress_bar.value = happy_progress_bar.value - 10
 	saveGame()
@@ -138,4 +151,27 @@ func _on_menu_button_pressed():
 	menu_pressed.emit()
 
 func _on_school_button_pressed():
-	pass
+	school.show()
+
+func _on_upgrade_button_pressed():
+	attribute_upgrade.show()
+
+func _on_attribute_upgrade_apr_level_up():
+	var newLevel = int(appearance_label.text) + 1
+	appearance_label.text = str(newLevel)
+	
+func _on_attribute_upgrade_chr_level_up():
+	var newLevel = int(charisma_label.text) + 1
+	charisma_label.text = str(newLevel)
+
+func _on_attribute_upgrade_int_level_up():
+	var newLevel = int(intelligence_label.text) + 1
+	intelligence_label.text = str(newLevel)
+
+func _on_attribute_upgrade_lck_level_up():
+	var newLevel = int(luck_label.text) + 1
+	luck_label.text = str(newLevel)
+
+func _on_attribute_upgrade_str_level_up():
+	var newLevel = int(strength_label.text) + 1
+	strength_label.text = str(newLevel)
