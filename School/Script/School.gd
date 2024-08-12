@@ -35,8 +35,7 @@ var nameList = {}
 # Called when the node enters the scene tree for the first time.
 ################################################################################
 func _ready():
-	generateNameList()
-	
+	pass
 	
 
 ################################################################################
@@ -48,6 +47,19 @@ func _process(delta):
 ################################################################################
 # Custom Functions
 ################################################################################
+func saveGame():
+	var schoolDict = {}
+	schoolDict["NameList"] = nameList
+	return schoolDict
+	
+func loadGame(dataToBeLoaded):
+	nameList = dataToBeLoaded["NameList"]
+	for i in nameList:
+		if (nameList[i] == "Male"):
+			friend_list.add_item(i,maleIcon)
+		elif(nameList[i] == "Female"):
+			friend_list.add_item(i,femaleIcon)
+
 func generateNameList():
 	nameList.clear()
 	friend_list.clear()
@@ -96,12 +108,13 @@ func _on_ask_to_be_friend_pressed():
 	var itemSelected = friend_list.get_selected_items()
 	var nameSelected = friend_list.get_item_text(itemSelected[0])	
 	friend_list.remove_item(itemSelected[0])
+	nameList.erase(nameSelected)
 	var eventText = "\nAsked "+nameSelected+" to be friend."
 	var charisma = int(attributes["Charisma"])
 	var appearance = int(attributes["Appearance"])
 	if (charisma > 3 or appearance > 3):
 		eventText = eventText + "\n"+nameSelected+" said yes!"
-		response_label.text = nameSelected+ "said yes!"
+		response_label.text = nameSelected+ " said yes!"
 		happy_event.emit(5)
 	else:
 		var rng = RandomNumberGenerator.new()
@@ -109,7 +122,7 @@ func _on_ask_to_be_friend_pressed():
 		var yes = 1
 		if( pick == 1):
 			eventText = eventText + "\n"+nameSelected+" said yes!"
-			response_label.text = nameSelected+ "said yes!"
+			response_label.text = nameSelected+ " said yes!"
 			happy_event.emit(5)
 		else:
 			eventText = eventText + "\n"+nameSelected+" said no!"

@@ -31,7 +31,7 @@ const defaultAge = 0
 const maxMonths = 11
 enum GENDER {FEMALE = 0, MALE = 1}
 var gender : GENDER
-
+var scrollBar : VScrollBar
 signal menu_pressed
 
 ################################################################################
@@ -39,7 +39,8 @@ signal menu_pressed
 ################################################################################
 func _ready():
 	life_events_text.focus_mode = FOCUS_NONE
-	
+	scrollBar = life_events_text.get_v_scroll_bar()
+	scrollBar.custom_minimum_size.x = 45
 	
 
 ################################################################################
@@ -90,6 +91,8 @@ func saveGame():
 	saveData.LifeText = life_events_text.text
 	saveData.Gender = str(gender)
 	saveData.merge(money.saveGame())
+	saveData.merge(attribute_upgrade.saveGame())
+	saveData.merge(school.saveGame())
 	SaveLoad.save(saveData)
 	
 func loadGame():
@@ -98,6 +101,8 @@ func loadGame():
 		returnType = true
 		var loadedData = SaveLoad.getLoadedGameData()
 		money.loadGame(loadedData)
+		attribute_upgrade.loadGame(loadedData)
+		school.loadGame(loadedData)
 		player_name.text = loadedData.Name 
 		age_label.text = loadedData.AgeInYrs
 		currentAgeYears = int(age_label.text)
@@ -119,12 +124,14 @@ func reset():
 	health_progress_bar.value = 100
 	happy_progress_bar.value = 100
 	life_events_text.text = "New Life Started"
+	school.generateNameList()
 	pass
 ################################################################################
 # Signals
 ################################################################################
 func _on_money_button_pressed():
 	money.show()
+	saveGame()
 
 func _on_add_month_pressed():
 	if( currentAgeMonths == maxMonths ):
@@ -158,9 +165,11 @@ func _on_menu_button_pressed():
 func _on_school_button_pressed():
 	school.setAttributes(getAttributes())
 	school.show()
+	saveGame()
 
 func _on_upgrade_button_pressed():
 	attribute_upgrade.show()
+	saveGame()
 
 func _on_attribute_upgrade_apr_level_up():
 	var newLevel = int(appearance_label.text) + 1
@@ -185,9 +194,11 @@ func _on_attribute_upgrade_str_level_up():
 func _on_school_school_event(eventText):
 	print(eventText)
 	life_events_text.text = life_events_text.text + eventText
+	saveGame()
 
 
 func _on_school_happy_event(delta):
 	if (delta > 0):
 		attribute_upgrade.increaseChr()
 	happy_progress_bar.value = happy_progress_bar.value + delta	
+	saveGame()

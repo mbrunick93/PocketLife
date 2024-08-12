@@ -20,6 +20,21 @@ const minValue = 0
 ################################################################################
 # Custom Functions
 ################################################################################
+func saveGame():
+	var attrUpgradeDict = {}
+	attrUpgradeDict.IntProgressBar = str(int_progress_bar.value)
+	attrUpgradeDict.StrProgressBar = str(str_progress_bar.value)
+	attrUpgradeDict.ChrProgressBar = str(chr_progress_bar.value)
+	attrUpgradeDict.AprProgressBar = str(apr_progress_bar.value)
+	attrUpgradeDict.LckProgressBar = str(lck_progress_bar.value)
+	return attrUpgradeDict
+
+func loadGame( dataToBeLoaded ):
+	int_progress_bar.value = int(dataToBeLoaded.IntProgressBar)
+	str_progress_bar.value = int(dataToBeLoaded.StrProgressBar)
+	chr_progress_bar.value = int(dataToBeLoaded.ChrProgressBar)
+	apr_progress_bar.value = int(dataToBeLoaded.AprProgressBar)
+	lck_progress_bar.value = int(dataToBeLoaded.LckProgressBar)
 func increaseInt():
 	var newXPLevel = int_progress_bar.value + xpIncrement
 	if (newXPLevel >= maxValue):

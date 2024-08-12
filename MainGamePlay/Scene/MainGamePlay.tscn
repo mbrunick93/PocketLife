@@ -204,29 +204,12 @@ theme_override_fonts/font = ExtResource("3_3n6cd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_qka81")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_tau2i")
-text = "New Life Started!
-fda
-f
-sadf
-asdf
-asf
-as
-fas
-fa
-sf
-asf
-as
-fas
-fa
-sdf
-asdf
-as
-dfa
-sfd"
+text = "New Life Started!"
 editable = false
 selecting_enabled = false
 virtual_keyboard_enabled = false
 wrap_mode = 1
+scroll_smooth = true
 
 [node name="StatsPanel" type="Panel" parent="Background/LifeEventsContainer/VBoxContainer"]
 custom_minimum_size = Vector2(850, 500)

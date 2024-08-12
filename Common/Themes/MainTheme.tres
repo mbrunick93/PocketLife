@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cw2b3g7skex55"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://cw2b3g7skex55"]
 
 [ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="1_tsfad"]
 
@@ -95,6 +95,31 @@ bg_color = Color(0.129412, 0.184314, 0.25098, 1)
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ks1hv"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8dau"]
+content_margin_top = 20.0
+content_margin_right = 25.0
+content_margin_bottom = 20.0
+bg_color = Color(0.952941, 0.941176, 0.894118, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3kxv"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_du2gf"]
+bg_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
 [resource]
 default_font = ExtResource("1_tsfad")
 Button/colors/font_color = Color(0.129412, 0.184314, 0.25098, 1)
@@ -119,3 +144,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_b4h71")
 PopupMenu/font_sizes/font_size = 70
 PopupMenu/fonts/font = ExtResource("1_tsfad")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_b8s1r")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_ks1hv")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_e8dau")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_r3kxv")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_du2gf")

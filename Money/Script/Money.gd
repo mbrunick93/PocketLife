@@ -46,7 +46,6 @@ func loadGame( dataToBeLoaded ):
 	account_income.text = dataToBeLoaded.Income
 	account_debt.text = dataToBeLoaded.Debt
 	account_net_worth.text = dataToBeLoaded.NetWorth
-	pass
 
 func setBalance( value ):
 	balance = value
