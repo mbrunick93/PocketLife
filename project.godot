@@ -21,6 +21,7 @@ config/icon="res://Common/Assets/PocketLifeIcon.png"
 [autoload]
 
 SaveLoad="*res://Common/SaveLoad.gd"
+NameGenerator="*res://NameGenerator/name_generator.gd"
 
 [display]
 

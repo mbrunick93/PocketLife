@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ktdeomo18gj"]
+[gd_scene load_steps=21 format=3 uid="uid://ktdeomo18gj"]
 
 [ext_resource type="Script" path="res://School/Script/School.gd" id="1_3ulku"]
 [ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_lkctj"]
@@ -15,6 +15,57 @@ font_size = 60
 [sub_resource type="LabelSettings" id="LabelSettings_dr3uy"]
 font = ExtResource("2_mv523")
 font_size = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds4f7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mafye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mbk87"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ccdwb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25gsw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ip3au"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8r0p"]
+bg_color = Color(0.133333, 0.635294, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51nrj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0icu"]
+font = ExtResource("2_mv523")
+font_size = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7yui"]
+bg_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hf1r"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 15.0
+bg_color = Color(0.952941, 0.941176, 0.894118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_detdo"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
 
 [node name="School" type="Control"]
 layout_mode = 3
@@ -70,6 +121,92 @@ label_settings = SubResource("LabelSettings_dr3uy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MarginContainer2" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 200
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer2"]
+custom_minimum_size = Vector2(900, 1300)
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_ds4f7")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_mafye")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_mbk87")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_ccdwb")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_25gsw")
+theme_override_styles/tabbar_background = SubResource("StyleBoxEmpty_ip3au")
+tabs_visible = false
+
+[node name="Preschool" type="Panel" parent="Panel/MarginContainer2/TabContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8r0p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer2/TabContainer/Preschool"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MakeFriends" type="Button" parent="Panel/MarginContainer2/TabContainer/Preschool/VBoxContainer"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 2
+text = "Make friends"
+
+[node name="Playground" type="Button" parent="Panel/MarginContainer2/TabContainer/Preschool/VBoxContainer"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 2
+text = "Playground"
+
+[node name="Reading" type="Button" parent="Panel/MarginContainer2/TabContainer/Preschool/VBoxContainer"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 2
+text = "Read"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer2/TabContainer/Preschool"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="ResponseLabel" type="Label" parent="Panel/MarginContainer2/TabContainer/Preschool/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_51nrj")
+text = "response place holder"
+label_settings = SubResource("LabelSettings_i0icu")
+horizontal_alignment = 1
+
+[node name="Elementary" type="Panel" parent="Panel/MarginContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8r0p")
+
+[node name="Middle" type="Panel" parent="Panel/MarginContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8r0p")
+
 [node name="ReturnContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7
@@ -106,4 +243,84 @@ grow_vertical = 2
 texture = ExtResource("4_6jtgt")
 expand_mode = 1
 
+[node name="FriendPanel" type="Panel" parent="Panel"]
+visible = false
+custom_minimum_size = Vector2(750, 990)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o7yui")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/FriendPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.5
+offset_right = 52.5
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/FriendPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="CloseFriendPanel" type="Button" parent="Panel/FriendPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 95)
+layout_mode = 2
+text = "close"
+
+[node name="AskToBeFriend" type="Button" parent="Panel/FriendPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(310, 95)
+layout_mode = 2
+text = "Ask to be
+ friend"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/FriendPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -800.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 25
+
+[node name="FriendList" type="ItemList" parent="Panel/FriendPanel/MarginContainer2"]
+custom_minimum_size = Vector2(700, 800)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.129412, 0.184314, 0.25098, 1)
+theme_override_colors/font_hovered_color = Color(0.129412, 0.184314, 0.25098, 1)
+theme_override_colors/font_selected_color = Color(0.129412, 0.184314, 0.25098, 1)
+theme_override_fonts/font = ExtResource("2_mv523")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/panel = SubResource("StyleBoxFlat_8hf1r")
+theme_override_styles/selected_focus = SubResource("StyleBoxFlat_detdo")
+fixed_icon_size = Vector2i(75, 75)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="pressed" from="Panel/MarginContainer2/TabContainer/Preschool/VBoxContainer/MakeFriends" to="." method="_on_make_friends_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer2/TabContainer/Preschool/VBoxContainer/Playground" to="." method="_on_playground_pressed"]
 [connection signal="pressed" from="Panel/ReturnContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Panel/FriendPanel/MarginContainer/HBoxContainer/CloseFriendPanel" to="." method="_on_close_friend_panel_pressed"]
+[connection signal="pressed" from="Panel/FriendPanel/MarginContainer/HBoxContainer/AskToBeFriend" to="." method="_on_ask_to_be_friend_pressed"]
+[connection signal="item_selected" from="Panel/FriendPanel/MarginContainer2/FriendList" to="." method="_on_friend_list_item_selected"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

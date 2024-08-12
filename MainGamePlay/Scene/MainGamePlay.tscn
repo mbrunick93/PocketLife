@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://xw14nyqbsjl3"]
+[gd_scene load_steps=26 format=3 uid="uid://xw14nyqbsjl3"]
 
 [ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_2c3dr"]
 [ext_resource type="Script" path="res://MainGamePlay/Script/MainGamePlay.gd" id="1_wnga8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c7a6ckr7b0qtu" path="res://MainGamePlay/Assets/work.svg" id="6_g4te2"]
 [ext_resource type="Texture2D" uid="uid://b0wd6y6hx4fbq" path="res://MainGamePlay/Assets/menu.svg" id="8_8aw0y"]
 [ext_resource type="PackedScene" uid="uid://bt3iybkm1b76c" path="res://Money/Scene/Money.tscn" id="9_706n0"]
+[ext_resource type="Texture2D" uid="uid://dssbtrydap2tk" path="res://MainGamePlay/Assets/friends.svg" id="9_lxlvn"]
 [ext_resource type="PackedScene" uid="uid://gbglq7plojdb" path="res://Work/Scene/Work.tscn" id="9_pm2v7"]
 [ext_resource type="PackedScene" uid="uid://ktdeomo18gj" path="res://School/Scene/School.tscn" id="11_n28yx"]
 [ext_resource type="PackedScene" uid="uid://37o47ijrcfe5" path="res://MainGamePlay/Scene/AttributeUpgrade.tscn" id="13_2mmrh"]
@@ -203,7 +204,25 @@ theme_override_fonts/font = ExtResource("3_3n6cd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_qka81")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_tau2i")
-text = "New Life Started"
+text = "New Life Started!
+fda
+f
+sadf
+asdf
+asf
+as
+fas
+fa
+sf
+asf
+as
+fas
+fa
+sdf
+asdf
+as
+dfa
+sfd"
 editable = false
 selecting_enabled = false
 virtual_keyboard_enabled = false
@@ -473,6 +492,28 @@ grow_vertical = 2
 texture = ExtResource("5_hdhwj")
 expand_mode = 1
 
+[node name="FriendsButton" type="Button" parent="Background/LifeOptionsContainers/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("1_2c3dr")
+
+[node name="IconLayer" type="TextureRect" parent="Background/LifeOptionsContainers/HBoxContainer/FriendsButton"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_lxlvn")
+expand_mode = 1
+
 [node name="MenuContainer" type="MarginContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 1
@@ -528,6 +569,8 @@ layout_mode = 1
 [connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/WorkButton" to="." method="_on_work_button_pressed"]
 [connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/SchoolButton" to="." method="_on_school_button_pressed"]
 [connection signal="pressed" from="Background/MenuContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="happy_event" from="School" to="." method="_on_school_happy_event"]
+[connection signal="school_event" from="School" to="." method="_on_school_school_event"]
 [connection signal="AprLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_apr_level_up"]
 [connection signal="ChrLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_chr_level_up"]
 [connection signal="IntLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_int_level_up"]

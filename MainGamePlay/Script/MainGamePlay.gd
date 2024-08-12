@@ -40,6 +40,7 @@ signal menu_pressed
 func _ready():
 	life_events_text.focus_mode = FOCUS_NONE
 	
+	
 
 ################################################################################
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,6 +65,15 @@ func setAge( NewAge ):
 	age_label_month.text = str(defaultAge)
 	age_label.text = str(NewAge)
 	school.setSchool(NewAge)
+	
+func getAttributes():
+	var attr = {}
+	attr["Intelligence"] = intelligence_label.text
+	attr["Strength"] = strength_label.text
+	attr["Charisma"] = charisma_label.text
+	attr["Luck"] = luck_label.text
+	attr["Appearance"] = appearance_label.text
+	return attr
 	
 func saveGame():
 	var saveData = {}
@@ -123,26 +133,21 @@ func _on_add_month_pressed():
 		age_label_month.text = str(currentAgeMonths)
 		age_label.text = str(currentAgeYears)
 		school.setSchool(currentAgeYears)
+		school.generateNameList()
+		life_events_text.text = life_events_text.text+"\nTurned "+age_label.text+" years old"
 	else:
 		currentAgeMonths += 1
 		age_label_month.text = str(currentAgeMonths)
 	
-	# Test Value!!!!!
-	happy_progress_bar.value = happy_progress_bar.value - 0.833
-	attribute_upgrade.increaseApr()
-	attribute_upgrade.increaseChr()
-	attribute_upgrade.increaseInt()
-	attribute_upgrade.increaseLck()
-	attribute_upgrade.increaseStr()
 	saveGame()
 		
 func _on_add_year_pressed():
 	currentAgeYears += 1
+	school.generateNameList()
 	school.setSchool(currentAgeYears)
 	age_label.text = str(currentAgeYears)
-	happy_progress_bar.value = happy_progress_bar.value - 10
+	life_events_text.text = life_events_text.text+"\nTurned "+age_label.text+" years old"
 	saveGame()
-	
 	
 func _on_work_button_pressed():
 	work.show()
@@ -151,6 +156,7 @@ func _on_menu_button_pressed():
 	menu_pressed.emit()
 
 func _on_school_button_pressed():
+	school.setAttributes(getAttributes())
 	school.show()
 
 func _on_upgrade_button_pressed():
@@ -175,3 +181,13 @@ func _on_attribute_upgrade_lck_level_up():
 func _on_attribute_upgrade_str_level_up():
 	var newLevel = int(strength_label.text) + 1
 	strength_label.text = str(newLevel)
+
+func _on_school_school_event(eventText):
+	print(eventText)
+	life_events_text.text = life_events_text.text + eventText
+
+
+func _on_school_happy_event(delta):
+	if (delta > 0):
+		attribute_upgrade.increaseChr()
+	happy_progress_bar.value = happy_progress_bar.value + delta	
