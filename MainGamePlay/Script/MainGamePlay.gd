@@ -202,3 +202,6 @@ func _on_school_happy_event(delta):
 		attribute_upgrade.increaseChr()
 	happy_progress_bar.value = happy_progress_bar.value + delta	
 	saveGame()
+
+func _on_school_playground_mini_game_won():
+	attribute_upgrade.increaseStr()

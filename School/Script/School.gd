@@ -9,6 +9,9 @@ extends Control
 @onready var ask_to_be_friend = $Panel/FriendPanel/MarginContainer/HBoxContainer/AskToBeFriend
 @onready var response_label = $Panel/MarginContainer2/TabContainer/Preschool/MarginContainer/ResponseLabel
 @onready var timer = $Timer
+@onready var play_ground_mini_game = $PlayGroundMiniGame
+
+signal playground_mini_game_won
 
 var attributes = {}
 
@@ -96,7 +99,8 @@ func _on_make_friends_pressed():
 	friend_panel.show()
 
 func _on_playground_pressed():
-	pass
+	play_ground_mini_game.resetPlayer()
+	play_ground_mini_game.show()
 
 func _on_close_friend_panel_pressed():
 	friend_panel.hide()
@@ -136,3 +140,7 @@ func _on_ask_to_be_friend_pressed():
 	
 func _on_timer_timeout():
 	response_label.hide()
+
+
+func _on_play_ground_mini_game_playground_mini_game_won():
+	playground_mini_game_won.emit()

@@ -553,6 +553,7 @@ layout_mode = 1
 [connection signal="pressed" from="Background/LifeOptionsContainers/HBoxContainer/SchoolButton" to="." method="_on_school_button_pressed"]
 [connection signal="pressed" from="Background/MenuContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="happy_event" from="School" to="." method="_on_school_happy_event"]
+[connection signal="playground_mini_game_won" from="School" to="." method="_on_school_playground_mini_game_won"]
 [connection signal="school_event" from="School" to="." method="_on_school_school_event"]
 [connection signal="AprLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_apr_level_up"]
 [connection signal="ChrLevelUp" from="AttributeUpgrade" to="." method="_on_attribute_upgrade_chr_level_up"]

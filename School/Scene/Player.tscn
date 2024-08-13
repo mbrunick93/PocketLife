@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://daewjk3r6fdku"]
+
+[ext_resource type="Texture2D" uid="uid://dkwxihmvqauvh" path="res://School/Assets/player_walk1.png" id="1_ego5l"]
+[ext_resource type="Script" path="res://School/Script/Player.gd" id="1_xt7mg"]
+[ext_resource type="Texture2D" uid="uid://dcd5yxcowav5f" path="res://School/Assets/player_walk2.png" id="2_aoyb4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7f8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ego5l")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aoyb4")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u4ti"]
+size = Vector2(42, 87)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_xt7mg")
+
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i7f8f")
+animation = &"left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_3u4ti")

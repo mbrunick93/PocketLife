@@ -1,0 +1,172 @@
+[gd_scene load_steps=12 format=3 uid="uid://b46ism07vnqcb"]
+
+[ext_resource type="Script" path="res://School/Script/PlayGroundMiniGame.gd" id="1_2h48g"]
+[ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_7ugwi"]
+[ext_resource type="Texture2D" uid="uid://dxpyiu5h5txfr" path="res://School/Assets/backgroundEmpty.png" id="2_y4wgb"]
+[ext_resource type="Texture2D" uid="uid://b1tnm2c0u2q35" path="res://School/Assets/set-lawn-earth-edges-flat-design.png" id="3_mo33o"]
+[ext_resource type="Texture2D" uid="uid://blp7a3yydh0hr" path="res://School/Assets/flag.svg" id="5_1u8cr"]
+[ext_resource type="Texture2D" uid="uid://ubkvsvyffl20" path="res://Common/Assets/return.svg" id="5_ewvf3"]
+[ext_resource type="PackedScene" uid="uid://daewjk3r6fdku" path="res://School/Scene/Player.tscn" id="6_qwlgl"]
+[ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="8_jqsb6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66rbe"]
+size = Vector2(1199, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_018p4"]
+size = Vector2(57, 339.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0hg7"]
+font = ExtResource("8_jqsb6")
+font_size = 150
+font_color = Color(0.886275, 0.521569, 0.431373, 1)
+
+[node name="PlayGroundMiniGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2h48g")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7ugwi")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_y4wgb")
+
+[node name="Ground" type="StaticBody2D" parent="MarginContainer"]
+position = Vector2(441, 811)
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Ground"]
+position = Vector2(101, 211.125)
+scale = Vector2(0.691042, 1.72736)
+texture = ExtResource("3_mo33o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/Ground"]
+position = Vector2(70, 281)
+shape = SubResource("RectangleShape2D_66rbe")
+
+[node name="FinishLine" type="Area2D" parent="MarginContainer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/FinishLine"]
+position = Vector2(1096.5, 1073.25)
+shape = SubResource("RectangleShape2D_018p4")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/FinishLine"]
+position = Vector2(1030.63, 962.75)
+scale = Vector2(0.154576, 0.15918)
+texture = ExtResource("5_1u8cr")
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="MarginContainer/FinishLine"]
+position = Vector2(1031, 1075)
+scale = Vector2(0.154576, 0.15918)
+texture = ExtResource("5_1u8cr")
+flip_h = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 400
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="LeftButton" type="Button" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+theme = ExtResource("1_7ugwi")
+text = "Left"
+
+[node name="RightButton" type="Button" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+theme = ExtResource("1_7ugwi")
+text = "Right"
+
+[node name="ReturnContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -350.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="ReturnButton" type="Button" parent="ReturnContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("1_7ugwi")
+
+[node name="TextureRect" type="TextureRect" parent="ReturnContainer/ReturnButton"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ewvf3")
+expand_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("6_qwlgl")]
+position = Vector2(7, 971)
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="WinLabel" type="Label" parent="MarginContainer3"]
+visible = false
+layout_mode = 2
+text = "You win!"
+label_settings = SubResource("LabelSettings_y0hg7")
+
+[connection signal="body_entered" from="MarginContainer/FinishLine" to="." method="_on_finish_line_body_entered"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="ReturnContainer/ReturnButton" to="." method="_on_return_button_pressed"]

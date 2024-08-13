@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://ktdeomo18gj"]
+[gd_scene load_steps=22 format=3 uid="uid://ktdeomo18gj"]
 
 [ext_resource type="Script" path="res://School/Script/School.gd" id="1_3ulku"]
 [ext_resource type="Theme" uid="uid://cw2b3g7skex55" path="res://Common/Themes/MainTheme.tres" id="1_lkctj"]
 [ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="2_mv523"]
 [ext_resource type="Texture2D" uid="uid://ubkvsvyffl20" path="res://Common/Assets/return.svg" id="4_6jtgt"]
+[ext_resource type="PackedScene" uid="uid://b46ism07vnqcb" path="res://School/Scene/PlayGroundMiniGame.tscn" id="5_78yjy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bd3a2"]
 
@@ -317,6 +318,10 @@ fixed_icon_size = Vector2i(75, 75)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="PlayGroundMiniGame" parent="." instance=ExtResource("5_78yjy")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="Panel/MarginContainer2/TabContainer/Preschool/VBoxContainer/MakeFriends" to="." method="_on_make_friends_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/TabContainer/Preschool/VBoxContainer/Playground" to="." method="_on_playground_pressed"]
 [connection signal="pressed" from="Panel/ReturnContainer/ReturnButton" to="." method="_on_return_button_pressed"]
@@ -324,3 +329,4 @@ wait_time = 2.0
 [connection signal="pressed" from="Panel/FriendPanel/MarginContainer/HBoxContainer/AskToBeFriend" to="." method="_on_ask_to_be_friend_pressed"]
 [connection signal="item_selected" from="Panel/FriendPanel/MarginContainer2/FriendList" to="." method="_on_friend_list_item_selected"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="playground_mini_game_won" from="PlayGroundMiniGame" to="." method="_on_play_ground_mini_game_playground_mini_game_won"]

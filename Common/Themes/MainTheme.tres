@@ -1,6 +1,18 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://cw2b3g7skex55"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://cw2b3g7skex55"]
 
 [ext_resource type="FontFile" uid="uid://7ds64a83kms3" path="res://Common/Fonts/Lonely Coffee.ttf" id="1_tsfad"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4moyv"]
+bg_color = Color(0.886275, 0.521569, 0.431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.129412, 0.184314, 0.25098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm0my"]
 bg_color = Color(0.886275, 0.521569, 0.431373, 1)
@@ -127,6 +139,7 @@ Button/colors/font_focus_color = Color(0.129412, 0.184314, 0.25098, 1)
 Button/colors/font_hover_color = Color(0.129412, 0.184314, 0.25098, 1)
 Button/colors/font_pressed_color = Color(0.129412, 0.184314, 0.25098, 1)
 Button/font_sizes/font_size = 60
+Button/styles/disabled = SubResource("StyleBoxFlat_4moyv")
 Button/styles/focus = SubResource("StyleBoxFlat_bm0my")
 Button/styles/hover = SubResource("StyleBoxFlat_f2sen")
 Button/styles/normal = SubResource("StyleBoxFlat_c5hpt")
